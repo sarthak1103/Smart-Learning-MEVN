@@ -1,7 +1,6 @@
 const courses = require('../models/courses');
 const Course=require('../models/courses');
-
-
+const fs=require('fs');
 module.exports= class course{
     //fetch al courses
     static async fetchAllCourse(req,res){
@@ -15,7 +14,15 @@ module.exports= class course{
   // fetch courses by id
 
   static async fetchCourseById(req,res){
-    res.send("Hello from fetchCourseById")
+   const id= req.params.id;
+   try {
+     const course=await Course.findById(id);
+     res.status(200).json(course);
+   } catch (error) {
+    res.status(404).json({message:error.message}); 
+
+    
+   }
 }
 
 // add course
@@ -32,6 +39,21 @@ static async AddCourse(req,res){
     }
 }
 static async deleteCourse(req,res){
-    res.send("Hello from deleteCourse")
+    const id=req.params.id;
+    try {
+        const result=await Course.findByIdAndDelete(id);
+        if(result.image!=''){
+            try {
+                fs.unlinkSync('./src/uploads/'+result.image );
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        res.status(200).json({message:'course deleted successfully'});
+    } catch (error) {
+        res.status(404).json({message:error.message});
+
+    }
+
 }
 }
