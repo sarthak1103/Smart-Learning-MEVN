@@ -9,6 +9,9 @@ const cors=require('cors');
 const { application } = require('express');
 const app= express();
 const port=process.env.PORT||3000;
+const auth= require('../middleware/auth');
+const errors=require('../middleware/errors');
+const {unless}= require('express-unless');
 
 
 //middleware
@@ -30,9 +33,22 @@ mongoose.connect(`mongodb://localhost:27017/e-learning`,{
 .then(()=>console.log("connected to e-learning database")).catch((error)=>
    console.log(error.message));
 
+auth.authenticateToken.unless=unless;
+app.use(
+  auth.authenticateToken.unless({
+      path:[
+        {url:"/users/login",methods:["POST"]},
+        {url:"/users/register",methods:["POST"]},
+        {url:"/",methods:["GET"]}
+      ],
+
+  })
+   );
 //routes prefix
 
 app.use("/",require('../routes/routes'));
+app.use("/users",require('../routes/routes'));
+app.use(errors.errorHandler); 
 //start server
 
 app.listen(port,()=>{

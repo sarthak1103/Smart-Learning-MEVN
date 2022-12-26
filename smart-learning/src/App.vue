@@ -3,8 +3,8 @@
    <NavMenu/>
    <!-- <HomePage/> -->
    <div class="my-4">
-            <router-view></router-view>
-        </div>
+    <router-view></router-view>
+    </div>
   </div>
 </template>
 

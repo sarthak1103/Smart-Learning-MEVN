@@ -1,7 +1,11 @@
+const course= require("../src/controllers/courses.controller");
+const userController= require("../src/controllers/users.controller");
 const express= require('express');
 const router=express.Router();
-const course= require("../src/controllers/courses.controller");
+
 const multer= require('multer');
+const { JsonWebTokenError } = require("jsonwebtoken");
+
 //multer middleware
 
 let storage= multer.diskStorage({
@@ -21,7 +25,10 @@ let uploadCourse=multer({
 
 router.get('/',course.fetchAllCourse);
 router.get('/:id',course.fetchCourseById);
+router.get("/users/:username",userController.getAllUsers);
 router.post('/addCourse',uploadCourse,course.AddCourse);
 router.delete('/:id',course.deleteCourse);
+router.post("/register",userController.register);
+router.post("/login",userController.login);
 
 module.exports=router;

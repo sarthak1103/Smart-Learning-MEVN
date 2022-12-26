@@ -6,3 +6,14 @@ export default class API{
         return res.data;
     }
 }
+
+
+
+// export const login= async ()=>{
+//     const response= await axios.post(
+//         `https://localhost:3000/users/login`,
+        
+//         );
+//         console.log(response.data)
+//         return response.data
+// };
