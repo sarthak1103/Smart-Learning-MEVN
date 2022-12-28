@@ -18,7 +18,7 @@ const {unless}= require('express-unless');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static("uploads"));
+// app.use(express.static("./uploads"));
 
 
 // connecting to database
@@ -39,7 +39,8 @@ app.use(
       path:[
         {url:"/users/login",methods:["POST"]},
         {url:"/users/register",methods:["POST"]},
-        {url:"/",methods:["GET"]}
+         {url:"/",methods:["GET"]},
+         {url:"/addCourse",methods:["POST"]},
       ],
 
   })

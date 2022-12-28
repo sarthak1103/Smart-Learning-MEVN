@@ -1,21 +1,29 @@
 <template>
-  <b-navbar class="navbar navbar-dark bg-dark variant=info">
-  
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-  
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="nav-item active">
-        <!-- We are building Single Page Application (SPA) -->
-        <!-- if we use "to" instead of "href" internally Vue Bootstrap uses <router-link> instead of <a> -> This will avoid page refresh -->
-        <b-nav-item to="/">Home</b-nav-item>
-      </b-navbar-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item to="/Login">Student Login</b-nav-item>
-        <b-nav-item to="/register">Register</b-nav-item>
-        
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+<main>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="#">Smart Learning</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/">Home</router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link class="nav-link" href="#">About Us</router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link class="nav-link" to="#">Contact Us</router-link>
+        </li>
+      </ul>
+      <router-link></router-link>
+      <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+    </div>
+  </nav>
+</main>
+
 </template>
 
 <script>

@@ -29,6 +29,7 @@ module.exports= class course{
 static async AddCourse(req,res){
     const addCourse= req.body;
     const imageName= req.file.filename;
+
     addCourse.image= imageName;
     try {
         await courses.create(addCourse);
