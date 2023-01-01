@@ -1,9 +1,8 @@
 import Router from 'vue-router';
 import CoursesDetails from '@/components/CoursesDetails.vue'
 import LoginPage from '@/components/LoginPage.vue'
-import RegisterPage from '@/components/RegisterPage.vue'
-//import UserLogin from '@/components/UserLogin.vue'
-import vueCourse from '@/components/vueCourse.vue'
+import HomePage from '@/components/HomePage.vue'
+import SignUp from '@/components/SignUp.vue'
 
 const router = new Router(
     {
@@ -11,9 +10,9 @@ const router = new Router(
         routes: [
            
             {
-                name:'register',
+                name:'home',
                 path:'/',
-                component:RegisterPage
+                component:HomePage
             },
             {
                 name:'login',
@@ -28,16 +27,11 @@ const router = new Router(
                 props:true
             },
             
-            // {
-            //     name:'landing',
-            //     path: '/landing',
-            //     component: UserLogin
-            // },
             {
-                name:'vueCourse',
-                path:'/vueCourse',
-                component:vueCourse,
-                props:true
+                name:'SignUp',
+                path:'/SignUp',
+                component:SignUp,
+               
             }
               
         ]

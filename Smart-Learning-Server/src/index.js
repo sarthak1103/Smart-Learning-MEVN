@@ -18,12 +18,12 @@ const {unless}= require('express-unless');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-// app.use(express.static("./uploads"));
+app.use(express.static("./uploads"));
 
 
 // connecting to database
 
-mongoose.connect(`mongodb://localhost:27017/e-learning`,{
+mongoose.connect(`mongodb+srv://sarthak:sarthak@smart-learning.pqoo9gq.mongodb.net/?retryWrites=true&w=majority`,{
     
    useNewUrlParser : true,
    useUnifiedTopology : true,
@@ -41,6 +41,7 @@ app.use(
         {url:"/users/register",methods:["POST"]},
          {url:"/",methods:["GET"]},
          {url:"/addCourse",methods:["POST"]},
+         {url:"/contact",method:["POST"]},
       ],
 
   })

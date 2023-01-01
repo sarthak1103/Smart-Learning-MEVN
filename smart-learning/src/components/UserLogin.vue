@@ -9,7 +9,7 @@
 <script>
 import axios from 'axios';
 export default {
- name:'LandingPage',
+ name:'UserLogin',
  data(){
     return{
 

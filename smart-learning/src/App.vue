@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="body">
    <NavMenu/>
    <!-- <HomePage/> -->
-   <div class="my-4">
+   <div class="my-4 main">
     <router-view></router-view>
     </div>
   </div>
@@ -20,6 +20,10 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+.main {
+  margin: 30px;
+}
 
 </style>

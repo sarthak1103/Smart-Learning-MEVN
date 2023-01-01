@@ -1,7 +1,7 @@
 <template>
 <div class="container mt-5 ">
-  <h1 class="text-center">Happy to you here </h1>
-  <p class="lead text-center"> you are just one step in the process
+  <h1 class="text-center">Happy to see you here </h1>
+  <p class="lead text-center"> you  are just one step in the process
   </p>
   <b-row class="justify-content-center mt-5 ">
     <b-col cols="12" md="8" lg="6">
@@ -43,7 +43,7 @@ methods:{
       //if succesfull
       if(response.status===200){
         localStorage.setItem('token',response.data.data.token);
-        this.$router.push({name:'landing'});
+        this.$router.push({name:'courses'});
       }
       console.log(response)
     }).catch(error =>{

@@ -1,5 +1,4 @@
 const courses = require('../models/courses');
-const Course=require('../models/courses');
 const fs=require('fs');
 module.exports= class course{
     //fetch al courses
@@ -16,7 +15,7 @@ module.exports= class course{
   static async fetchCourseById(req,res){
    const id= req.params.id;
    try {
-     const course=await Course.findById(id);
+     const course=await courses.findById(id);
      res.status(200).json(course);
    } catch (error) {
     res.status(404).json({message:error.message}); 
@@ -28,7 +27,8 @@ module.exports= class course{
 // add course
 static async AddCourse(req,res){
     const addCourse= req.body;
-    const imageName= req.file.filename;
+    console.log(req.file)
+    const imageName= req.file+"_"+feildname+"_"+Date.now().toString()+"_"+file.orignalname;
 
     addCourse.image= imageName;
     try {
