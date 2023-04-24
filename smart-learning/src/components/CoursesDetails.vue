@@ -3,12 +3,12 @@
     <b-row>
         <b-col sm="4" v-for="course in courses" :key="course._id">
             
-          <b-card >
+          <b-card style="margin-bottom: 30px; box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
            <b-card-img
            :src="`${course.image}`"
             height="250"></b-card-img>
-           
-            <p>{{ course.content }}</p>
+            
+            <p><br>{{ course.content }}</p>
                 <b-card-title >
                    {{ course.name }}
                 </b-card-title>
@@ -16,19 +16,14 @@
                   {{ course.category }}
                 </b-card-text>
               <div>
-             
                 <a :href="course.youtubeUrl" alt="link" class="active-link" target="_blank">
                  <b-button variant="primary" >Watch Now</b-button> 
                 </a>
             </div>
           </b-card>
         </b-col>
-          
     </b-row>
-    
-  
   </b-container> 
-  
 </template>
 
 <script>
